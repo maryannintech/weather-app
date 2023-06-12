@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap');
+
+* {
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --background-color: #15050b;
+    --primary-color: #6a4865;
+    --secondary-color: #f9fbfb;
+    --text-color: #ffffff;
+}
+
+body {
+    background-image: url(main-bg.svg);
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
