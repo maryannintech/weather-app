@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
     <script src="main.js" defer></script>
-    
-</head>
-<body>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="weather-modal">
-        
+      <div class="search-content">
+        <form>
+          <input
+            type="search"
+            placeholder="search location"
+            id="search-location"
+            spellcheck="true"
+            aria-label="Search your location to know the weather"
+            required
+          />
+          <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>
