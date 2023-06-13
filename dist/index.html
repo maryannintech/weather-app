@@ -13,26 +13,44 @@
   <body>
     <div class="weather-modal">
       <div class="modal-content">
-      <div class="search-content">
-        <form>
-          <input
-            type="search"
-            placeholder="search location"
-            id="search-location"
-            spellcheck="true"
-            aria-label="Search your location to know the weather"
-            required
-          />
-          <button type="submit"><i class="bx bx-search-alt-2"></i></button>
-        </form>
+        <div class="search-content">
+          <p class="title">weather app</p>
+          <form>
+            <input
+              type="search"
+              placeholder="search location"
+              id="search-location"
+              spellcheck="true"
+              aria-label="Search your location to know the weather"
+              required
+            />
+            <button type="submit"><i class="bx bx-search-alt-2"></i></button>
+          </form>
+        </div>
+        <p class="location-name">📍 manila, ph</p>
+        <p class="date">🗓️ 13/06/2023</p>
+        <div class="weather-img sunny-bg"></div>
+        <div class="weather-info">
+          <div class="container">
+            <p class="tempt">87.8</p>
+            <p class="condition">partly cloudy</p>
+          </div>
+          <div class="container">
+            <p class="wind-dir">w</p>
+            <p class="humidity">75</p>
+          </div>
+        </div>
       </div>
-      <p class="location-name">📍 manila, ph</p>
-      <hr>
-      <div class="weather-img sunny-bg"></div>
-    </div>
     </div>
     <footer>
-      Powered by <a href="https://www.weatherapi.com/" title="Free Weather API" target="_blank" rel="noopener">WeatherAPI.com</a>
+      Powered by
+      <a
+        href="https://www.weatherapi.com/"
+        title="Free Weather API"
+        target="_blank"
+        rel="noopener"
+        >WeatherAPI.com</a
+      >
     </footer>
   </body>
 </html>
