@@ -8,6 +8,7 @@ searchForm.addEventListener("submit", (event) => {
 
 async function searchLocation() {
   const locationInput = document.querySelector("#search-location").value;
+  const errorDisplay = document.querySelector(".error");
   try {
     const url = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=43de531f62bb4ccbb8961404230806&q=${locationInput}`,
@@ -16,18 +17,51 @@ async function searchLocation() {
       }
     );
     const responseURL = await url.json();
+    const weatherInfo = {
+      location: responseURL.location.name,
+      country: responseURL.location.country,
+      date: responseURL.current.last_updated,
+      temptF: responseURL.current.temp_f,
+      temptC: responseURL.current.temp_c,
+      condition: responseURL.current.condition.text,
+      windDirection: responseURL.current.wind_dir,
+      humidity: responseURL.current.humidity,
+    };
+    displayInfo(weatherInfo);
     console.log(responseURL);
-  } catch (error) {
-    console.log("No information found");
-  }
+  } catch (error) {}
 }
 
-function displayInfo(location, date, tempt, condition, direction, humidiy) {
+function displayInfo(weather) {
   const locationName = document.querySelector(".location-name");
+  const countryName = document.querySelector(".country");
   const dateDisplay = document.querySelector(".date");
   const temptDisplay = document.querySelector(".tempt");
   const conditionDisplay = document.querySelector(".condition");
   const windDirDisplay = document.querySelector(".wind-dir");
   const humiditiyDisplay = document.querySelector(".humidity");
   const weatherIMG = document.querySelector(".weather-img");
+
+  locationName.textContent = `${weather.location},`;
+  countryName.textContent = weather.country;
+  dateDisplay.textContent = weather.date;
+  temptDisplay.textContent = `${weather.temptF}°F`;
+  conditionDisplay.textContent = weather.condition;
+  windDirDisplay.textContent = weather.windDirection;
+  humiditiyDisplay.textContent = weather.humidity;
+
+  const weathercondition = weather.condition.toLowerCase();
+  if (weathercondition.includes("sunny") || weathercondition.includes("clear")) {
+    weatherIMG.classList.add("sunny-bg");
+  } else if (weathercondition.includes("cloudy") || weathercondition.includes("overcast")) {
+    weatherIMG.classList.add("cloudy-bg");
+  } else if (weathercondition.includes("rain") || weathercondition.includes("drizzle")) {
+    weatherIMG.classList.add("rainy-bg");
+  } else if (weathercondition.includes("snow") || weathercondition.includes("ice") || weathercondition.includes("sleet")) {
+    weatherIMG.classList.add("snowy-bg");
+  } else if (weathercondition.includes("thunder")) {
+    weatherIMG.classList.add("thunder-bg");
+  } else if (weathercondition.includes("windy") || weathercondition.includes("fog")) {
+    weatherIMG.classList.add("windy-bg");
+  }
 }
