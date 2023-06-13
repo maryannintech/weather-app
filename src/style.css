@@ -149,12 +149,12 @@ p {
   justify-content: space-between;
 }
 
-.cel:hover {
+button:hover {
   background-color: #3f2a3c;
 }
 
-.fah:hover {
-  background-color: #3f2a3c;
+form > button:hover {
+  background-color: #b8b8b8;
 }
 
 .hide {
