@@ -64,7 +64,7 @@ input {
   color: var(--text-color);
 }
 
-button:not(.switch) {
+button:not(.switch, .fah, .cel) {
   cursor: pointer;
   padding: 6px 7px;
   font-size: 1rem;
@@ -120,7 +120,8 @@ p {
   text-align: center;
 }
 
-.switch {
+.cel,
+.fah {
   margin: 5px;
   padding: 0 5px;
   background-color: var(--primary-color);

@@ -53,10 +53,14 @@ function displayInfo(weather) {
   const windDirDisplay = document.querySelector(".wind-dir");
   const humiditiyDisplay = document.querySelector(".humidity");
   const weatherIMG = document.querySelector(".weather-img");
-  const switchBtn = document.querySelector(".switch");
+  const fahBtn = document.querySelector(".fah");
+  const celBtn = document.querySelector(".cel");
 
-  switchBtn.addEventListener("click", () => {
-    switchTempt(weather, temptDisplay);
+  fahBtn.addEventListener("click", () => {
+    switchToFah(weather, temptDisplay);
+  });
+  celBtn.addEventListener("click", () => {
+    switchToCel(weather, temptDisplay);
   });
 
   locationName.textContent = `${weather.location},`;
@@ -107,14 +111,10 @@ function displayInfo(weather) {
   }
 }
 
-let isfahrenTempt = true;
+function switchToFah(weather, element) {
+  element.textContent = `${weather.temptF}°F`;
+}
 
-function switchTempt(weather, element) {
-  if (isfahrenTempt) {
-    element.textContent = `${weather.temptC}°C`;
-    isfahrenTempt = false;
-  } else {
-    element.textContent = `${weather.temptF}°F`;
-    isfahrenTempt = true;
-  }
+function switchToCel(weather, element) {
+  element.textContent = `${weather.temptC}°C`;
 }
