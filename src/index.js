@@ -22,11 +22,12 @@ async function searchLocation() {
   }
 }
 
-async function displayInfo() {
+function displayInfo(location, date, tempt, condition, direction, humidiy) {
   const locationName = document.querySelector(".location-name");
   const dateDisplay = document.querySelector(".date");
   const temptDisplay = document.querySelector(".tempt");
   const conditionDisplay = document.querySelector(".condition");
   const windDirDisplay = document.querySelector(".wind-dir");
   const humiditiyDisplay = document.querySelector(".humidity");
+  const weatherIMG = document.querySelector(".weather-img");
 }
