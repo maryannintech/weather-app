@@ -22,6 +22,7 @@ async function searchLocation() {
     );
     const responseURL = await url.json();
     loaderElement.classList.add("hide");
+    errorDisplay.classList.add("hide");
     weatherModalElement.classList.remove("hide");
     const weatherInfo = {
       location: responseURL.location.name,
@@ -35,10 +36,10 @@ async function searchLocation() {
     };
     displayInfo(weatherInfo);
     console.log(responseURL);
-    errorDisplay.classList.add("hide");
   } catch (error) {
     weatherModalElement.classList.add("hide");
     loaderElement.classList.add("hide");
+    errorDisplay.classList.remove("hide");
     errorDisplay.textContent = "location not found 😥"
   }
 }
