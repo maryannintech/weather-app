@@ -73,6 +73,22 @@ button {
   background-image: url(cloudy.svg);
 }
 
+.rainy-bg {
+  background-image: url(rainy.svg);
+}
+
+.snowy-bg {
+  background-image: url(snowy.svg);
+}
+
+.thunder-bg {
+  background-image: url(thunder.svg);
+}
+
+.windy-bg {
+  background-image: url(windy.svg);
+}
+
 a {
   text-decoration: none;
   color: var(--text-color);
