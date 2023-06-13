@@ -12,6 +12,10 @@
   --text-color: #ffffff;
 }
 
+::selection {
+  background: var(--primary-color);
+}
+
 body {
   background-image: url(main-bg.svg);
   height: 100vh;
