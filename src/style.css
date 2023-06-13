@@ -117,6 +117,19 @@ p {
   cursor: pointer;
 }
 
+.bxl-github {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  padding: 3px;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
 a {
   text-decoration: none;
   color: var(--text-color);
