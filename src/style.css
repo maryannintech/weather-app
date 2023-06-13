@@ -59,6 +59,10 @@ input {
   margin-right: 10px;
 }
 
+.error {
+  margin: 0 5px;
+}
+
 button:not(.switch) {
   cursor: pointer;
   padding: 6px 7px;
@@ -68,6 +72,12 @@ button:not(.switch) {
 
 p {
   margin: 0;
+}
+
+.loader {
+  text-align: center;
+  margin: 10px;
+  font-size: 1.7rem;
 }
 
 .weather-img {

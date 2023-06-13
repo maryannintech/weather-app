@@ -9,7 +9,11 @@ searchForm.addEventListener("submit", (event) => {
 async function searchLocation() {
   const locationInput = document.querySelector("#search-location").value;
   const errorDisplay = document.querySelector(".error");
+  const loaderElement = document.querySelector(".loader");
+  const weatherModalElement = document.querySelector(".content-weather");
+
   try {
+    loaderElement.classList.remove("hide");
     const url = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=43de531f62bb4ccbb8961404230806&q=${locationInput}`,
       {
@@ -17,6 +21,8 @@ async function searchLocation() {
       }
     );
     const responseURL = await url.json();
+    loaderElement.classList.add("hide");
+    weatherModalElement.classList.remove("hide");
     const weatherInfo = {
       location: responseURL.location.name,
       country: responseURL.location.country,
@@ -29,7 +35,12 @@ async function searchLocation() {
     };
     displayInfo(weatherInfo);
     console.log(responseURL);
-  } catch (error) {}
+    errorDisplay.classList.add("hide");
+  } catch (error) {
+    weatherModalElement.classList.add("hide");
+    loaderElement.classList.add("hide");
+    errorDisplay.textContent = "location not found 😥"
+  }
 }
 
 function displayInfo(weather) {
@@ -51,17 +62,33 @@ function displayInfo(weather) {
   humiditiyDisplay.textContent = weather.humidity;
 
   const weathercondition = weather.condition.toLowerCase();
-  if (weathercondition.includes("sunny") || weathercondition.includes("clear")) {
+  if (
+    weathercondition.includes("sunny") ||
+    weathercondition.includes("clear")
+  ) {
     weatherIMG.classList.add("sunny-bg");
-  } else if (weathercondition.includes("cloudy") || weathercondition.includes("overcast")) {
+  } else if (
+    weathercondition.includes("cloudy") ||
+    weathercondition.includes("overcast")
+  ) {
     weatherIMG.classList.add("cloudy-bg");
-  } else if (weathercondition.includes("rain") || weathercondition.includes("drizzle")) {
+  } else if (
+    weathercondition.includes("rain") ||
+    weathercondition.includes("drizzle")
+  ) {
     weatherIMG.classList.add("rainy-bg");
-  } else if (weathercondition.includes("snow") || weathercondition.includes("ice") || weathercondition.includes("sleet")) {
+  } else if (
+    weathercondition.includes("snow") ||
+    weathercondition.includes("ice") ||
+    weathercondition.includes("sleet")
+  ) {
     weatherIMG.classList.add("snowy-bg");
   } else if (weathercondition.includes("thunder")) {
     weatherIMG.classList.add("thunder-bg");
-  } else if (weathercondition.includes("windy") || weathercondition.includes("fog")) {
+  } else if (
+    weathercondition.includes("windy") ||
+    weathercondition.includes("fog")
+  ) {
     weatherIMG.classList.add("windy-bg");
   }
 }
