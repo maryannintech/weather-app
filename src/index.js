@@ -27,7 +27,7 @@ async function searchLocation() {
     const weatherInfo = {
       location: responseURL.location.name,
       country: responseURL.location.country,
-      date: responseURL.current.last_updated,
+      date: responseURL.location.localtime,
       temptF: responseURL.current.temp_f,
       temptC: responseURL.current.temp_c,
       condition: responseURL.current.condition.text,
@@ -40,7 +40,7 @@ async function searchLocation() {
     weatherModalElement.classList.add("hide");
     loaderElement.classList.add("hide");
     errorDisplay.classList.remove("hide");
-    errorDisplay.textContent = "location not found 😥"
+    errorDisplay.textContent = "location not found 😥";
   }
 }
 
@@ -53,6 +53,11 @@ function displayInfo(weather) {
   const windDirDisplay = document.querySelector(".wind-dir");
   const humiditiyDisplay = document.querySelector(".humidity");
   const weatherIMG = document.querySelector(".weather-img");
+  const switchBtn = document.querySelector(".switch");
+
+  switchBtn.addEventListener("click", () => {
+    switchTempt(weather, temptDisplay);
+  });
 
   locationName.textContent = `${weather.location},`;
   countryName.textContent = weather.country;
@@ -62,6 +67,14 @@ function displayInfo(weather) {
   windDirDisplay.textContent = weather.windDirection;
   humiditiyDisplay.textContent = weather.humidity;
 
+  weatherIMG.classList.remove(
+    "sunny-bg",
+    "cloudy-bg",
+    "rainy-bg",
+    "snowy-bg",
+    "thunder-bg",
+    "windy-bg"
+  );
   const weathercondition = weather.condition.toLowerCase();
   if (
     weathercondition.includes("sunny") ||
@@ -91,5 +104,17 @@ function displayInfo(weather) {
     weathercondition.includes("fog")
   ) {
     weatherIMG.classList.add("windy-bg");
+  }
+}
+
+let isfahrenTempt = true;
+
+function switchTempt(weather, element) {
+  if (isfahrenTempt) {
+    element.textContent = `${weather.temptC}°C`;
+    isfahrenTempt = false;
+  } else {
+    element.textContent = `${weather.temptF}°F`;
+    isfahrenTempt = true;
   }
 }
