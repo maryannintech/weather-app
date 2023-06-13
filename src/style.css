@@ -20,6 +20,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   color: var(--text-color);
+  padding: 20px;
 }
 
 .weather-modal {
@@ -29,6 +30,7 @@ body {
   height: 80%;
   flex-direction: column;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .modal-content {
@@ -143,6 +145,14 @@ p {
   justify-content: space-between;
 }
 
+.cel:hover {
+  background-color: #3f2a3c;
+}
+
+.fah:hover {
+  background-color: #3f2a3c;
+}
+
 .hide {
   display: none;
 }
@@ -150,6 +160,10 @@ p {
 a {
   text-decoration: none;
   color: var(--text-color);
+}
+
+a:hover {
+  background-color: #3f2a3c;
 }
 
 footer {

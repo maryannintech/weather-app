@@ -13,6 +13,7 @@ async function searchLocation() {
   const weatherModalElement = document.querySelector(".content-weather");
 
   try {
+    // add loader when waiting for the api
     loaderElement.classList.remove("hide");
     const url = await fetch(
       `https://api.weatherapi.com/v1/current.json?key=43de531f62bb4ccbb8961404230806&q=${locationInput}`,
@@ -35,7 +36,6 @@ async function searchLocation() {
       humidity: responseURL.current.humidity,
     };
     displayInfo(weatherInfo);
-    console.log(responseURL);
   } catch (error) {
     weatherModalElement.classList.add("hide");
     loaderElement.classList.add("hide");
@@ -79,6 +79,8 @@ function displayInfo(weather) {
     "thunder-bg",
     "windy-bg"
   );
+
+  // change weather pic depending on the weather condition
   const weathercondition = weather.condition.toLowerCase();
   if (
     weathercondition.includes("sunny") ||
