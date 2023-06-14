@@ -107,7 +107,8 @@ function displayInfo(weather) {
     weatherIMG.classList.add("thunder-bg");
   } else if (
     weathercondition.includes("windy") ||
-    weathercondition.includes("fog")
+    weathercondition.includes("fog") ||
+    weathercondition.includes("mist")
   ) {
     weatherIMG.classList.add("windy-bg");
   }
