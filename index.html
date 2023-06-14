@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>weather checker</title>
+    <script src="main.js" defer></script>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      sizes="any"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☂️</text></svg>"
+    />
+  </head>
+  <body>
+    <div class="weather-modal float-up-animation">
+      <div class="modal-content">
+        <div class="search-content">
+          <p class="title">WEATHER CHECKER</p>
+          <form class="formsearch">
+            <input
+              type="search"
+              placeholder="search location"
+              id="search-location"
+              spellcheck="true"
+              aria-label="Search your location to know the weather"
+              required
+            />
+            <button type="submit" class="submit-btn"><i class="bx bx-search-alt-2"></i></button>
+          </form>
+          <p class="error hide"></p>
+        </div>
+        <div class="loader hide"><i class="bx bx-loader-alt bx-spin"></i></div>
+        <div class="content-weather hide">
+          <p>
+            📍 <span class="location-name"></span> <span class="country"></span>
+          </p>
+          <p>🗓️ <span class="date"></span></p>
+          <div class="weather-img"></div>
+          <div class="weather-info">
+            <div class="container">
+              <p>Temperature: <span class="tempt"></span></p>
+              <p>Condition: <span class="condition"></span></p>
+            </div>
+            <div class="container">
+              <p>Wind direction: <span class="wind-dir"></span></p>
+              <p>Humidity: <span class="humidity"></span></p>
+            </div>
+            <div class="buttons">
+              <div class="tempt-btns">
+                <button class="fah">°F</button>
+                <button class="cel">°C</button>
+              </div>
+              <a target="_blank" rel="noopener" href="https://t.co/OQG2u65QTQ"
+                ><i class="bx bxl-github"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      Powered by
+      <a
+        href="https://www.weatherapi.com/"
+        title="Free Weather API"
+        target="_blank"
+        rel="noopener"
+        >WeatherAPI.com</a
+      >
+    </footer>
+  </body>
+</html>
